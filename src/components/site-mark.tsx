@@ -1,0 +1,27 @@
+import { cn } from "@/lib/utils"
+
+export function SiteMark({ className, ...props }: React.ComponentProps<"img">) {
+  return (
+    <>
+      <img
+        src="/najmul/najmuls-light.svg"
+        alt="najmul's logo"
+        className={cn("hidden h-4 w-auto object-contain dark:block", className)}
+        {...props}
+      />
+      <img
+        src="/najmul/najmuls-logo.svg"
+        alt="najmul's logo"
+        className={cn("block h-4 w-auto object-contain dark:hidden", className)}
+        {...props}
+      />
+    </>
+  )
+}
+
+export function getMarkSVG(color: string) {
+  return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139 136" preserveAspectRatio="xMidYMid meet">
+<path d="M0 0 C8.25 0 16.5 0 25 0 C25.495 10.395 25.495 10.395 26 21 C28.753 18.03 28.753 18.03 31.562 15 C32.125 14.394 32.688 13.788 33.268 13.164 C37.266 8.842 41.119 4.436 45 0 C53.58 0 62.16 0 71 0 C71 22.44 71 44.88 71 68 C62.75 68 54.5 68 46 68 C46 53.48 46 38.96 46 24 C39.07 24 32.14 24 25 24 C25 38.52 25 53.04 25 68 C16.75 68 8.5 68 0 68 C0 45.56 0 23.12 0 0 Z " fill=${color} transform="translate(33,32)"/>
+</svg>`
+}
+
