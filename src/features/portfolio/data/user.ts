@@ -7,7 +7,7 @@ export const USER: User = {
   username: "najmul",
   gender: "male",
   pronouns: "He/Him",
-  bio: "Creating impactful digital experiences with clean, scalable code.",
+  bio: "Frontend Developer & Quality Assurance (QA) Engineer creating impactful digital experiences with clean, scalable code.",
   flipSentences: [
     "Frontend Developer",
     "Quality Assurance (QA) Engineer",
@@ -17,7 +17,7 @@ export const USER: User = {
   phoneNumber: "Kzg4MDE2MTEwMzk0MjU=", // +8801611039425 (E.164, base64)
   email: "bmFqbXVsaGFxdWV0YWx1a2RlcjQxQGdtYWlsLmNvbQ==", // najmulhaquetalukder41@gmail.com (base64)
   website: "https://najmul-haque-talukder-41.vercel.app", 
-  jobTitle: "Frontend Developer",
+  jobTitle: "Frontend Developer & Quality Assurance (QA) Engineer",
   jobs: [
     {
       title: "Frontend Developer",
@@ -45,10 +45,15 @@ export const USER: User = {
     "najmulhtalukder",
     "najmul haque talukder",
     "najmul h talukder",
+    "Najmul Haque Talukder",
+    "Najmul H. Talukder",
+    "najmul-haque-talukder",
+    "Quality Assurance Engineer",
+    "QA Engineer",
+    "Software QA Engineer",
     "cpi high tech club",
     "frontend developer bangladesh",
     "najmul softvence",
-    "najmul-haque-talukder"
   ],
   dateCreated: "2026-02-15",
 } satisfies User

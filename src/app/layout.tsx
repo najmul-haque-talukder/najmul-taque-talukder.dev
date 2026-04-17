@@ -3,11 +3,12 @@ import "@/styles/globals.css"
 import type { Metadata, Viewport } from "next"
 import Script from "next/script"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
-import type { WebSite, WithContext } from "schema-dts"
+import type { Person, WebSite, WithContext } from "schema-dts"
 
 import { DuckFollower } from "@/components/duck-follower"
 import { Providers } from "@/components/providers"
-import { META_THEME_COLORS, SITE_INFO, X_USERNAME } from "@/config/site"
+import { SITE_INFO, META_THEME_COLORS, X_USERNAME } from "@/config/site"
+import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { USER } from "@/features/portfolio/data/user"
 import { fontMono, fontPixelSquare, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
@@ -18,7 +19,27 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
     "@type": "WebSite",
     name: SITE_INFO.name,
     url: SITE_INFO.url,
-    alternateName: [USER.username],
+    alternateName: [
+      USER.username,
+      "Najmul H. Talukder",
+      "najmul-haque-talukder",
+    ],
+  }
+}
+
+function getPersonJsonLd(): WithContext<Person> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: USER.displayName,
+    alternateName: ["Najmul H. Talukder", "najmul-haque-talukder"],
+    url: SITE_INFO.url,
+    jobTitle: USER.jobTitle,
+    description: SITE_INFO.description,
+    image: `${SITE_INFO.url}${USER.avatar}`,
+    sameAs: SOCIAL_LINKS.map((link) => link.href).filter((href) =>
+      href.startsWith("http")
+    ),
   }
 }
 
@@ -147,6 +168,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(getWebSiteJsonLd()).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getPersonJsonLd()).replace(/</g, "\\u003c"),
           }}
         />
       </head>
