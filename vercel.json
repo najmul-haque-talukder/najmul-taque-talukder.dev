@@ -1,7 +1,7 @@
 {
-  "framework": "nextjs",
-  "buildCommand": "pnpm run build",
-  "installCommand": "pnpm install",
-  "outputDirectory": ".next",
-  "nodeVersion": "24.x"
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
 }
