@@ -4,6 +4,8 @@ import type { Metadata, Viewport } from "next"
 import Script from "next/script"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
 import type { Person, WebSite, WithContext } from "schema-dts"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { DuckFollower } from "@/components/duck-follower"
 import { Providers } from "@/components/providers"
@@ -185,6 +187,8 @@ export default function RootLayout({
             <DuckFollower />
           </NuqsAdapter>
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
